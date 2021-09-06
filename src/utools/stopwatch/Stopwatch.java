@@ -1,10 +1,10 @@
 package utools.stopwatch;
 
 /**
- * Primitive stopwatch. Start with realize constructor.
+ * Primitive stopwatch. Start measure time as millis with realize constructor.
  *
  * @author Andrey Korneychuk
- * @version 1.0
+ * @version 1.1
  */
 public class Stopwatch {
 
@@ -31,6 +31,17 @@ public class Stopwatch {
 	}
 
 	/**
+	 * Private cloning constructor.
+	 *
+	 * @param time   original object time in millis
+	 * @param format original format
+	 */
+	private Stopwatch(long time, String format) {
+		this.format = format;
+		this.time = time;
+	}
+
+	/**
 	 * Print to console formatted string.
 	 * Invoke {@code getPrettyString()} method.
 	 */
@@ -39,21 +50,21 @@ public class Stopwatch {
 	}
 
 	/**
-	 * @return start time as millis
+	 * @return start millis
 	 */
 	public long getStartTime() {
 		return time;
 	}
 
 	/**
-	 * @return formatted string
+	 * @return formatted string with millis elapsed from start
 	 */
 	public String getPrettyString() {
-		return String.format(format, System.currentTimeMillis() - time);
+		return String.format(format, getElapsedTime());
 	}
 
 	/**
-	 * @return format string
+	 * @return format
 	 */
 	public String getFormat() {
 		return format;
@@ -90,7 +101,7 @@ public class Stopwatch {
 	}
 
 	/**
-	 * Append string to current format before existing statement.
+	 * Append string to current format before existing format.
 	 *
 	 * @param string appended format
 	 */
@@ -99,7 +110,7 @@ public class Stopwatch {
 	}
 
 	/**
-	 * Append string to current format after existing statement.
+	 * Append string to current format after existing format.
 	 *
 	 * @param string appended format
 	 */
@@ -108,12 +119,27 @@ public class Stopwatch {
 	}
 
 	/**
-	 * Return internal state of object.
+	 * Return internal state of object as string.
 	 *
 	 * @return internal state
 	 */
 	@Override
 	public String toString() {
 		return "Stopwatch{" + "time=" + time + ", format='" + format + '\'' + '}';
+	}
+
+	/**
+	 * @return stopwatch clone
+	 */
+	@Override
+	public Stopwatch clone() {
+		return new Stopwatch(time, format);
+	}
+
+	/**
+	 * @return current millis elapsed from start
+	 */
+	public long getElapsedTime() {
+		return System.currentTimeMillis() - time;
 	}
 }
