@@ -1,0 +1,4 @@
+stopwatch.default_format=%d ms
+extended_stopwatch.default_format_h=%d h
+extended_stopwatch.default_format_m=%d m
+extended_stopwatch.default_format_s=%d s

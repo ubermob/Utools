@@ -1,23 +1,45 @@
 package utools.stopwatch;
 
+import java.io.IOException;
+import java.util.Properties;
+
 /**
- * Primitive stopwatch. Start measure time as millis with realize constructor.
+ * Primitive stopwatch.
+ * Start measure time as millis with realize constructor.
  *
  * @author Andrey Korneychuk
- * @version 1.1
+ * @version 1.2
  */
 public class Stopwatch {
 
-	private static final String DEFAULT_FORMAT = "%d ms";
+	protected static final Properties properties;
+	private static final String DEFAULT_FORMAT;
 
-	private long time;
+	static {
+		properties = new Properties();
+		try {
+			properties.load(Stopwatch.class.getResourceAsStream("/Stopwatch_properties.txt"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		DEFAULT_FORMAT = properties.getProperty("stopwatch.default_format");
+	}
+
+	private long startTime;
 	private String format = getDefaultFormat();
+
+	/**
+	 * @return default format
+	 */
+	public static String getDefaultFormat() {
+		return DEFAULT_FORMAT;
+	}
 
 	/**
 	 * Constructor with default format
 	 */
 	public Stopwatch() {
-		time = System.currentTimeMillis();
+		startTime = System.currentTimeMillis();
 	}
 
 	/**
@@ -27,18 +49,18 @@ public class Stopwatch {
 	 */
 	public Stopwatch(String format) {
 		this.format = format;
-		time = System.currentTimeMillis();
+		startTime = System.currentTimeMillis();
 	}
 
 	/**
-	 * Private cloning constructor.
+	 * Protected cloning constructor.
 	 *
 	 * @param time   original object time in millis
 	 * @param format original format
 	 */
-	private Stopwatch(long time, String format) {
+	protected Stopwatch(long time, String format) {
 		this.format = format;
-		this.time = time;
+		this.startTime = time;
 	}
 
 	/**
@@ -53,7 +75,7 @@ public class Stopwatch {
 	 * @return start millis
 	 */
 	public long getStartTime() {
-		return time;
+		return startTime;
 	}
 
 	/**
@@ -80,13 +102,6 @@ public class Stopwatch {
 	}
 
 	/**
-	 * @return default format
-	 */
-	public String getDefaultFormat() {
-		return DEFAULT_FORMAT;
-	}
-
-	/**
 	 * Reset current format to default.
 	 */
 	public void resetFormat() {
@@ -97,7 +112,7 @@ public class Stopwatch {
 	 * Reset stopwatch.
 	 */
 	public void reset() {
-		time = System.currentTimeMillis();
+		startTime = System.currentTimeMillis();
 	}
 
 	/**
@@ -125,7 +140,7 @@ public class Stopwatch {
 	 */
 	@Override
 	public String toString() {
-		return "Stopwatch{" + "time=" + time + ", format='" + format + '\'' + '}';
+		return "Stopwatch{" + "startTime=" + startTime + ", format='" + format + '\'' + '}';
 	}
 
 	/**
@@ -133,13 +148,13 @@ public class Stopwatch {
 	 */
 	@Override
 	public Stopwatch clone() {
-		return new Stopwatch(time, format);
+		return new Stopwatch(startTime, format);
 	}
 
 	/**
 	 * @return current millis elapsed from start
 	 */
 	public long getElapsedTime() {
-		return System.currentTimeMillis() - time;
+		return System.currentTimeMillis() - startTime;
 	}
 }
