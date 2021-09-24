@@ -3,11 +3,10 @@ package utools.stopwatch;
 import java.util.Arrays;
 
 /**
- * Primitive stopwatch.
- * Start measure time as millis with realize constructor.
+ * Primitive stopwatch. Start measure time as millis with realize constructor.
  * Output time from hours to millis.
  *
- * @author Andrey Korneychuk
+ * @author Andrey Korneychuk on 12-Sep-21
  * @version 1.0
  */
 public class ExtendedStopwatch extends Stopwatch {

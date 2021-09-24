@@ -4,10 +4,9 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * Primitive stopwatch.
- * Start measure time as millis with realize constructor.
+ * Primitive stopwatch. Start measure time as millis with realize constructor.
  *
- * @author Andrey Korneychuk
+ * @author Andrey Korneychuk on 26-Aug-21
  * @version 1.2
  */
 public class Stopwatch {

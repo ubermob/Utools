@@ -1,11 +1,11 @@
-package utools.round;
+package utools.numbertools;
 
 /**
  * Round floating point number.
  *
  * @version 1.0
  */
-public class Round {
+public class NumberTools {
 
 	/**
 	 * Round floating point number.
