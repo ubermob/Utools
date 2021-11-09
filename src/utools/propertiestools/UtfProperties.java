@@ -10,10 +10,11 @@ import java.util.Properties;
  * Default line spliterator is "=". File example:<BR>
  * {@code en=hello}<BR>
  * {@code ru=привет}<BR>
- * {@code jp=おい}
+ * {@code jp=おい}<BR>
+ * Support comment char is "#".
  *
  * @author Andrey Korneychuk on 24-Sep-21
- * @version 1.0
+ * @version 1.1
  */
 public class UtfProperties {
 
@@ -68,9 +69,13 @@ public class UtfProperties {
 		Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
 		BufferedReader bufferedReader = new BufferedReader(reader, bufferSize);
 		String[] split;
+		String line;
 		while (bufferedReader.ready()) {
-			split = bufferedReader.readLine().split(spliterator);
-			properties.put(split[0].trim(), split[1].trim());
+			line = bufferedReader.readLine();
+			if (line.charAt(0) != 35) { // '#' comment char
+				split = line.split(spliterator);
+				properties.put(split[0].trim(), split[1].trim());
+			}
 		}
 	}
 
