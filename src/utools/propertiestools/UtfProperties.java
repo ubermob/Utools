@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 /**
- * Short call UTF-8 encoded {@link Properties}.
+ * Short invoke UTF-8 encoded {@link Properties}.
  *
  * @author Andrey Korneychuk on 24-Sep-21
  * @version 2.1

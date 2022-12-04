@@ -5,7 +5,7 @@ package utools.numbertools;
  *
  * @version 1.0
  */
-public class NumberTools {
+public class FloatRounder {
 
 	/**
 	 * Round floating point number.

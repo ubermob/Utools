@@ -27,7 +27,7 @@ public class ExtendedStopwatch extends Stopwatch {
 	private String beforeFormat, afterFormat;
 
 	/**
-	 * Constructor with default format
+	 * Constructor with default format.
 	 */
 	public ExtendedStopwatch() {
 		super();
@@ -36,7 +36,7 @@ public class ExtendedStopwatch extends Stopwatch {
 	}
 
 	/**
-	 * Constructor with default format
+	 * Constructor with default format.
 	 *
 	 * @param isMillisPresence presence millis to output
 	 */
@@ -49,7 +49,7 @@ public class ExtendedStopwatch extends Stopwatch {
 	/**
 	 * Constructor with user formats:
 	 * - before format
-	 * - after format
+	 * - after format.
 	 *
 	 * @param beforeFormat new format
 	 * @param afterFormat  new format
@@ -65,7 +65,7 @@ public class ExtendedStopwatch extends Stopwatch {
 	/**
 	 * Constructor with user formats:
 	 * - before format
-	 * - after format
+	 * - after format.
 	 *
 	 * @param isMillisPresence presence millis to output
 	 * @param beforeFormat     new format
@@ -80,7 +80,7 @@ public class ExtendedStopwatch extends Stopwatch {
 	}
 
 	/**
-	 * Protected cloning constructor
+	 * Protected cloning constructor.
 	 *
 	 * @param stopwatchTime    original object time in millis
 	 * @param stopwatchFormat  original format
@@ -199,7 +199,7 @@ public class ExtendedStopwatch extends Stopwatch {
 	}
 
 	/**
-	 * Toggle millis presence
+	 * Toggle millis presence.
 	 */
 	public void toggleMillisPresence() {
 		isMillisPresence = !isMillisPresence;

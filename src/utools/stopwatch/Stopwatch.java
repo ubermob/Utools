@@ -35,14 +35,14 @@ public class Stopwatch {
 	}
 
 	/**
-	 * Constructor with default format
+	 * Constructor with default format.
 	 */
 	public Stopwatch() {
 		startTime = System.currentTimeMillis();
 	}
 
 	/**
-	 * Constructor with user format
+	 * Constructor with user format.
 	 *
 	 * @param format new format
 	 */

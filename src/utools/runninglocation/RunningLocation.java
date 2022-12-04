@@ -63,7 +63,7 @@ public class RunningLocation {
 
 	/**
 	 * Return current *.jar file path. Example for Windows: "C:/file_name.jar".
-	 * Example for Linux: "/home/user_name/Documents/file_name.jar"
+	 * Example for Linux: "/home/user_name/Documents/file_name.jar".
 	 *
 	 * @return current *.jar file path
 	 */
